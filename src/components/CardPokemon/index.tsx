@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, Image } from 'react-native'
 
-interface pokemon {
+export interface Pokemon {
     id: number;
     name: string;
     height: number;
@@ -10,7 +10,12 @@ interface pokemon {
     };
 }
 
-const CardPokemon: React.FC<pokemon> = ({id, name, height, sprites}) => {
+interface PokemonsItemProps {
+    pokemon: Pokemon
+}
+
+const CardPokemon: React.FC<PokemonsItemProps> = ({ pokemon }) => {
+    console.log(pokemon)
     return (
         <View>
             <Text>
@@ -18,7 +23,7 @@ const CardPokemon: React.FC<pokemon> = ({id, name, height, sprites}) => {
             </Text>
 
             <Text>
-                altura {height}
+                altura {pokemon.name}
             </Text>
 
             {/* <Image source={sprites.back_default} /> */}
