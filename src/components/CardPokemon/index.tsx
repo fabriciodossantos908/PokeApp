@@ -16,6 +16,7 @@ interface PokemonsItemProps {
 
 const CardPokemon: React.FC<PokemonsItemProps> = ({ pokemon }) => {
     console.log(pokemon)
+    alert('founded')
     return (
         <View>
             <Text>

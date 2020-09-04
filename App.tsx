@@ -1,30 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import CardPokemon, { Pokemon } from './src/components/CardPokemon';
-import axios from 'axios'
+import React from 'react';
 
+import PokeList from './src/pages/PokeList';
+import { StyleSheet } from 'react-native';
+import AppStack from './src/routes/appStack';
 
 export default function App() {
-  const [ pokemons, setPokemons ] = useState([])
-
-  function getAllPokemons () {
-    axios.get('https://pokeapi.co/api/v2/pokemon/')
-    .then( (response) => {
-      setPokemons(response.data.results);
-    })
-  };
-  
 
   return (
     <>
-    {pokemons.map( (pokemon : Pokemon) => {
-      <CardPokemon key={pokemon.id} pokemon={pokemon}/>
-    })}
-      <StatusBar style="light" />
+      <AppStack />
+      <StatusBar style="dark" />
     </>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
